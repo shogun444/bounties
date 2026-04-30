@@ -13,9 +13,7 @@ export interface UpdateUserParams {
 }
 
 export async function updateUser(params: UpdateUserParams) {
-  const response = await authClient.updateUser(
-    params as Parameters<typeof authClient.updateUser>[0],
-  );
+  const response = await authClient.updateUser(params);
 
   if (response.error) {
     throw new Error(response.error.message || "Failed to update user profile");
