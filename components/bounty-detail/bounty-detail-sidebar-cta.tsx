@@ -520,6 +520,7 @@ export function MobileCTA({ bounty, onCancelled }: MobileCTAProps) {
               variant="outline"
               size="lg"
               className="h-11 border-red-500/30 text-red-400 hover:bg-red-500/10 shrink-0"
+              aria-label="Cancel bounty"
               onClick={() => setCancelDialogOpen(true)}
             >
               <XCircle className="size-4" />
@@ -548,6 +549,7 @@ export function MobileCTA({ bounty, onCancelled }: MobileCTAProps) {
               variant="outline"
               size="lg"
               className="h-11 border-red-500/30 text-red-400 hover:bg-red-500/10 shrink-0"
+              aria-label="Cancel bounty"
               onClick={() => setCancelDialogOpen(true)}
             >
               <XCircle className="size-4" />
