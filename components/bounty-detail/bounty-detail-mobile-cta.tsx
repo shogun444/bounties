@@ -16,7 +16,8 @@ import {
 
 import { BountyFieldsFragment } from "@/lib/graphql/generated";
 import { FcfsClaimButton } from "@/components/bounty/fcfs-claim-button";
-import type { CancellationRecord, Bounty } from "@/types/bounty";
+import type { CancellationRecord } from "@/types/escrow";
+import type { Bounty } from "@/types/bounty";
 import {
   ApplicationDialog,
 } from "@/components/bounty/application-dialog";
