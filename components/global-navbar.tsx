@@ -21,11 +21,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { authClient } from "@/lib/auth-client";
 
 import { Wallet, LogIn, Fingerprint } from "lucide-react";
 
 export function GlobalNavbar() {
   const pathname = usePathname();
+  const { data: session } = authClient.useSession();
+  const userRole = (session?.user as { role?: string } | undefined)?.role as
+    | "sponsor"
+    | "contributor"
+    | undefined;
   const { walletInfo, isConnected, isRegistered, connect, isLoading } =
     useSmartWallet();
 
@@ -112,6 +118,18 @@ export function GlobalNavbar() {
             >
               Wallet
             </Link>
+            {userRole === "sponsor" && (
+              <Link
+                href="/bounty/create"
+                className={`transition-colors hover:text-foreground/80 ${
+                  pathname.startsWith("/bounty/create")
+                    ? "text-foreground"
+                    : "text-foreground/60"
+                }`}
+              >
+                Create
+              </Link>
+            )}
             <Link
               href="/bounty/review"
               className={`transition-colors hover:text-foreground/80 ${
